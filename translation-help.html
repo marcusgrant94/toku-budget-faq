@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toku Budget – Help Translate</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a class="back-link" href="index.html" aria-label="Back to FAQ">← FAQ</a>
+      <div class="app-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" role="img">
+          <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#06b6d4"/>
+          </linearGradient></defs>
+          <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#g)"/>
+          <path d="M7 12l3 3 7-7" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="titles">
+        <span class="app-name">Toku Budget</span>
+        <h1>Help Us Translate</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc container">
+    <aside class="toc" aria-label="On this page">
+      <div class="toc-title">On this page</div>
+      <nav id="toc-list"></nav>
+    </aside>
+
+    <article class="content">
+      <p class="lede">
+        If you’d like to help us translate Toku Budget into a language we don’t support yet,
+        we really appreciate it. This page explains how to contribute safely and efficiently.
+      </p>
+
+      <h2 id="how-it-works">How it works</h2>
+      <ol>
+        <li><strong>Email us</strong> at
+          <a href="mailto:grantmarcus1994@gmail.com?subject=Help%20translate%20Toku%20Budget">grantmarcus1994@gmail.com</a>
+          with your language and region (e.g., “Portuguese – Brazil”).</li>
+        <li>We’ll send a <strong>translation pack</strong> (a small ZIP) that includes:
+          <ul>
+            <li><code>Localizable.strings</code> template with English source</li>
+            <li>Optional CSV if you prefer spreadsheets</li>
+            <li>A short style guide</li>
+          </ul>
+        </li>
+        <li>You translate the values and send the files back by email.</li>
+        <li>We review, integrate, and ship in an update. 🎉</li>
+      </ol>
+
+      <h2 id="what-to-translate">What to translate</h2>
+      <p>We keep translations compact and focused on the in-app UI:</p>
+      <ul>
+        <li>Sidebar &amp; menu labels (Overview, Transactions, Budgets, etc.)</li>
+        <li>Buttons, tooltips, and status messages</li>
+        <li>Settings sections (Appearance, Import/Export, Sync, Trash)</li>
+        <li>Import CSV terms (Date, Amount, Debit, Credit, Note…)</li>
+        <li>Short helper text in cards (e.g., “No upcoming bills”)</li>
+      </ul>
+
+      <h2 id="style-guide">Style & consistency</h2>
+      <ul>
+        <li><strong>Keep it concise.</strong> Space in buttons and chips is limited.</li>
+        <li><strong>Use sentence case</strong> unless your locale prefers title case.</li>
+        <li><strong>Do not translate placeholders</strong> like <code>%d</code>, <code>%@</code>.</li>
+        <li><strong>Match finance terms</strong> commonly used in your locale (e.g., “Debit/Credit”).</li>
+        <li><strong>Dates & numbers:</strong> the app formats them for the user’s locale, so translate the labels only.</li>
+      </ul>
+
+      <h2 id="format-notes">Format notes</h2>
+      <h3 id="strings">.strings format</h3>
+      <pre class="code-block"><code>/* Context: Overview header */
+"overview.title" = "Overview";
+
+/* Button: starts CSV import flow */
+"import.csv" = "Import CSV…";
+</code></pre>
+      <ul>
+        <li>Left side (<em>key</em>) stays English; translate only the right side (<em>value</em>).</li>
+        <li>Preserve punctuation and ellipses (…); keep any placeholders unchanged.</li>
+      </ul>
+
+      <h3 id="csv">CSV option</h3>
+      <p>Prefer spreadsheets? We can provide a two-column CSV:
+         <em>key, translation</em>. Please don’t change the keys.</p>
+
+      <h2 id="testing">Testing your translation (optional)</h2>
+      <ol>
+        <li>We can send you a <strong>TestFlight</strong> or a macOS build with your language added.</li>
+        <li>Do a quick pass in all major sections: Overview, Transactions, Budgets, Settings.</li>
+        <li>Report any truncation; we’ll tweak UI widths or wording together.</li>
+      </ol>
+
+      <h2 id="credits">Credits</h2>
+      <p>
+        We’re grateful for community help. If you’d like, we’ll add your name (and optional link)
+        to a translators list on the FAQ site.
+      </p>
+
+      <h2 id="ready-to-help">Ready to help?</h2>
+      <p>
+        Email <a href="mailto:grantmarcus1994@gmail.com?subject=Help%20translate%20Toku%20Budget">grantmarcus1994@gmail.com</a>
+        with your language/region and we’ll send the translation pack. Thank you! 💙
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <a class="feedback" href="mailto:grantmarcus1994@gmail.com?subject=Toku%20Budget%20Feedback">
+      <span class="send-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M21 3L3 10l7 3 3 7 8-17z" fill="currentColor"/></svg>
+      </span>
+      Send Feedback
+    </a>
+    <span class="spacer"></span>
+    <span class="copyright">© <span id="year"></span> Toku Budget</span>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="docs.js"></script>
+</body>
+</html>

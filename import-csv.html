@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toku Budget – Import CSV Data</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a class="back-link" href="index.html" aria-label="Back to FAQ">← FAQ</a>
+      <div class="app-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" role="img">
+          <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#06b6d4"/>
+          </linearGradient></defs>
+          <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#g)"/>
+          <path d="M7 12l3 3 7-7" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="titles">
+        <span class="app-name">Toku Budget</span>
+        <h1>Import CSV Data</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc container">
+    <aside class="toc" aria-label="On this page">
+      <div class="toc-title">On this page</div>
+      <nav id="toc-list"></nav>
+    </aside>
+
+    <article class="content">
+      <p class="lede">
+        Bring your existing transactions into <strong>Toku Budget</strong> with a fast, flexible CSV importer.
+        Map columns, preview data, save templates, and avoid duplicates automatically.
+      </p>
+
+      <h2 id="open-importer">Open the importer</h2>
+      <ul>
+        <li><strong>Toolbar:</strong> <em>Import/Export → Import CSV…</em></li>
+        <li><strong>Menu:</strong> File → Import CSV…</li>
+        <li><strong>Shortcut (macOS):</strong> <kbd>⌘I</kbd></li>
+      </ul>
+      <p>Click <strong>Choose CSV…</strong> to select your file. A live preview (~20 rows) will appear.</p>
+      <div class="callout info">
+        The importer tries a strict parser first. If needed, it falls back to a lenient parser and
+        <strong>auto-detects the delimiter</strong> (comma, semicolon, or tab).
+      </div>
+
+      <h2 id="requirements">Minimum mapping requirements</h2>
+      <p>To enable the <strong>Import</strong> button, you must map:</p>
+      <ul>
+        <li><strong>Date</strong></li>
+        <li><strong>Amount</strong> <em>or</em> <strong>Debit/Credit</strong></li>
+      </ul>
+      <p>Optional columns: <em>Type, Note, Category, Currency</em>.</p>
+
+      <h2 id="map-columns">Map your columns</h2>
+      <p>Use the dropdowns above the preview to map CSV headers to Toku fields. You can also set:</p>
+      <ul>
+        <li><strong>Date Format</strong> — must match your file (e.g. <code>MM/dd/yyyy</code>).</li>
+        <li><strong>Delimiter</strong> — comma / semicolon / tab (override the auto-detected value if needed).</li>
+        <li><strong>Amount Mode</strong> — see below; defaults to <em>Debit/Credit Columns</em>.</li>
+        <li><strong>Currency Fallback</strong> — used when a row has no currency (default <code>USD</code>).</li>
+      </ul>
+
+      <h2 id="amount-mode">Choose an Amount Mode</h2>
+      <h3 id="debit-credit">Debit/Credit Columns (default)</h3>
+      <ul>
+        <li>Map <em>Debit</em> and/or <em>Credit</em> columns.</li>
+        <li>Non-zero <em>Debit</em> → <strong>Expense</strong>; non-zero <em>Credit</em> → <strong>Income</strong>.</li>
+        <li>If both are zero/empty, the row is skipped as invalid.</li>
+      </ul>
+
+      <h3 id="single-amount">Single Amount</h3>
+      <ul>
+        <li>Map a single <em>Amount</em> column.</li>
+        <li>Negatives (e.g. <code>-12.34</code> or <code>(12.34)</code> or <code>12.34-</code>) are treated as <strong>Expense</strong>; positives as <strong>Income</strong>.</li>
+        <li>If you also map <em>Type</em>, hints like “expense / debit / withdrawal / charge / payment sent” count as Expense; “income / credit / deposit / refund / payment received” count as Income.</li>
+      </ul>
+
+      <h2 id="templates">Templates</h2>
+      <p>
+        If your headers match a saved template, it’s applied automatically. After mapping once,
+        click <strong>Save as Template</strong>. Next time, the importer will auto-apply it when the headers match.
+      </p>
+
+      <h2 id="run-import">Run the import</h2>
+      <ol>
+        <li>Confirm the preview looks correct and required fields are mapped.</li>
+        <li>Click <strong>Import</strong>. You’ll see a summary like:
+          <em>“Imported N • Skipped X invalid • Skipped Y duplicates”</em>.
+        </li>
+      </ol>
+      <div class="callout tip">
+        <strong>Categories:</strong> If a category name in your CSV doesn’t exist yet, Toku Budget will
+        create it automatically (case-insensitive match).
+      </div>
+
+      <h2 id="duplicates">How duplicates are prevented</h2>
+      <p>
+        Each row is hashed using <strong>date + amount + type (income/expense) + currency + note</strong>.
+        If that hash already exists, the row is skipped as a duplicate.
+      </p>
+
+      <h2 id="troubleshooting">Troubleshooting</h2>
+      <ul>
+        <li><strong>Import button disabled:</strong> Map <em>Date</em> and either <em>Amount</em> or <em>Debit/Credit</em>.</li>
+        <li><strong>Dates won’t parse:</strong> Set the exact <em>Date Format</em> used in your file.</li>
+        <li><strong>Columns shifted or merged:</strong> Switch the <em>Delimiter</em> to match your CSV.</li>
+        <li><strong>Unexpected duplicates:</strong> Check for repeated rows with the same date/amount/type/currency/note.</li>
+        <li><strong>Very large files:</strong> Import in smaller batches and save a template for speed.</li>
+      </ul>
+
+      <h2 id="shortcuts">Shortcuts & where to find it</h2>
+      <ul>
+        <li><strong>Toolbar:</strong> <em>Import/Export → Import CSV…</em></li>
+        <li><strong>Menu:</strong> File → Import CSV…</li>
+        <li><strong>Keyboard (macOS):</strong> <kbd>⌘I</kbd></li>
+      </ul>
+
+      <h2 id="help-feedback">Help & feedback</h2>
+      <p>
+        Need a hand or have a bank format we should support? Email
+        <a href="mailto:grantmarcus1994@gmail.com?subject=Toku%20Budget%20CSV%20Import">grantmarcus1994@gmail.com</a>.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <a class="feedback" href="mailto:grantmarcus1994@gmail.com?subject=Toku%20Budget%20Feedback">
+      <span class="send-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M21 3L3 10l7 3 3 7 8-17z" fill="currentColor"/></svg>
+      </span>
+      Send Feedback
+    </a>
+    <span class="spacer"></span>
+    <span class="copyright">© <span id="year"></span> Toku Budget</span>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="docs.js"></script>
+</body>
+</html>
+

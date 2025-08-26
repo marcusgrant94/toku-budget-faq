@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toku Budget – Getting Started</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="docs.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a class="back-link" href="index.html" aria-label="Back to FAQ">← FAQ</a>
+      <div class="app-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" role="img">
+          <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#06b6d4"/>
+          </linearGradient></defs>
+          <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#g)"/>
+          <path d="M7 12l3 3 7-7" stroke="white" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="titles">
+        <span class="app-name">Toku Budget</span>
+        <h1>Getting Started</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc container">
+    <aside class="toc" aria-label="On this page">
+      <div class="toc-title">On this page</div>
+      <nav id="toc-list"></nav>
+    </aside>
+
+    <article class="content">
+      <p class="lede">
+        Welcome to <strong>Toku Budget</strong> — a fast, private budgeting app that keeps your data local,
+        with optional iCloud sync for Premium. This guide walks you through your first 10 minutes.
+      </p>
+
+      <h2 id="quick-start">Quick start (5 steps)</h2>
+      <ol>
+        <li><strong>Pick a date range.</strong> Use <em>Month / Quarter / Year</em> in the top bar.</li>
+        <li><strong>Add transactions.</strong> Go to <em>Transactions</em> → add manually or <em>Import CSV…</em>.</li>
+        <li><strong>Create budgets.</strong> Open <em>Budgets</em> and set monthly limits per category.</li>
+        <li><strong>Log subscriptions & bills.</strong> Use <em>Subscriptions</em> and <em>Bills</em>; mark paid to roll forward.</li>
+        <li><strong>Review the Overview.</strong> The Net Balance card, Daily Spend, and Breakdown summarize your month.</li>
+      </ol>
+
+      <h2 id="first-run">First run & navigation</h2>
+      <p>
+        The sidebar holds the main sections: <em>Overview, Transactions, Subscriptions, Bills, Budgets, Stats, Trends, Coach</em>.
+        A settings gear lives at the bottom of the sidebar. You’ll also see a top toolbar with your date range,
+        currency chips (USD now; JPY shows a lock and “coming soon”), and a <em>Savings Goal</em> button.
+      </p>
+
+      <h2 id="adding-data">Add your first data</h2>
+      <h3 id="manual-entry">Manual entry</h3>
+      <p>Go to <em>Transactions</em> and add an income or expense. Choose a category, amount, date, note, and currency (USD).</p>
+
+      <h3 id="csv-import">Import from CSV</h3>
+      <p>
+        On macOS, open the toolbar menu <em>Import/Export → Import CSV…</em> (or use Settings → <em>Import</em>).
+        Map your columns in the preview and pick an <strong>Amount Mode</strong>:
+      </p>
+      <ul>
+        <li><strong>Debit/Credit Columns</strong> — separate columns for money out / in.</li>
+        <li><strong>Single Amount</strong> — one column (negatives are expenses; positives are income).</li>
+      </ul>
+      <p>
+        Choose the correct date format, then import. Toku Budget automatically skips duplicates using a content hash
+        (date + amount + kind + currency + note).
+      </p>
+      <div class="callout info">
+        <strong>Tip:</strong> You can save your mapping as a reusable template; it’ll auto-apply next time when headers match.
+      </div>
+
+      <h2 id="categories">Categories</h2>
+      <p>
+        Starter categories are created for you. Edit them in <em>Settings → Categories</em>. Categories drive
+        your Budgets and reports, so keep them simple and meaningful.
+      </p>
+
+      <h2 id="budgets">Budgets</h2>
+      <p>
+        In <em>Budgets</em>, add a monthly limit per category. You’ll see ring charts showing % used.
+        The Overview card also surfaces two categories for a quick glance.
+      </p>
+
+      <h2 id="subs-bills">Subscriptions & Bills</h2>
+      <p>
+        Track recurring charges in <em>Subscriptions</em> and due dates in <em>Bills</em>.
+        When you hit <em>Mark Paid</em>, the next cycle is scheduled (monthly or yearly).
+        If reminders are enabled, Toku Budget schedules local notifications ahead of the due date.
+      </p>
+
+      <h2 id="savings-goal">Savings Goal</h2>
+      <p>
+        Click <em>Savings Goal</em> in the toolbar to set a target amount and a target date.
+        Suggestions and trend tips will use this to guide monthly targets.
+      </p>
+
+      <h2 id="overview">Understand the Overview</h2>
+      <ul>
+        <li><strong>Net Balance</strong> — income minus expenses for the current range, with a simple running trend chart and zero line.</li>
+        <li><strong>Upcoming Bills</strong> — your next payments at a glance; mark paid right there.</li>
+        <li><strong>By Category</strong> — a quick breakdown of where money is going.</li>
+        <li><strong>Recent</strong> — latest transactions (double-click to edit on macOS).</li>
+        <li><strong>Daily Spending</strong> — see spikes by day to spot patterns.</li>
+        <li><strong>AI Tips (Premium)</strong> — personalized suggestions based on your activity.</li>
+      </ul>
+      <p>Click the <strong>?</strong> button in the toolbar to replay the coach marks that highlight key UI areas.</p>
+
+      <h2 id="appearance-currency">Appearance & currency</h2>
+      <p>
+        Pick <em>Light</em> or <em>Dark</em> in <em>Settings → Appearance</em> and choose an accent color (more colors unlock with Premium).
+        The currency chip currently supports <strong>USD</strong>. <strong>JPY</strong> is shown but locked with a
+        “coming soon” message.
+      </p>
+
+      <h2 id="sync">iCloud Sync (Premium)</h2>
+      <p>
+        Enable in <em>Settings → Sync</em>. You can see the last sync time and trigger a manual sync.
+        Data is stored locally with Core Data; Premium adds cloud sync between devices signed into the same Apple ID.
+      </p>
+
+      <h2 id="import-export">Import & export</h2>
+      <p>
+        Import is available to everyone. CSV export is available from the macOS menu and <em>Settings → Export</em> and
+        requires Premium.
+      </p>
+
+      <h2 id="shortcuts">Handy shortcuts (macOS)</h2>
+      <ul>
+        <li><kbd>⌘ ,</kbd> — Open Settings</li>
+        <li><em>Toolbar → Import/Export</em> — Import CSV, Export CSV (Premium)</li>
+      </ul>
+
+      <h2 id="help">Help & feedback</h2>
+      <p>
+        Stuck or have an idea? Send us a note —
+        <a href="mailto:grantmarcus1994@gmail.com?subject=Toku%20Budget%20Feedback">grantmarcus1994@gmail.com</a>.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <a class="feedback" href="mailto:grantmarcus1994@gmail.com?subject=Toku%20Budget%20Feedback">
+      <span class="send-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path d="M21 3L3 10l7 3 3 7 8-17z" fill="currentColor"/></svg>
+      </span>
+      Send Feedback
+    </a>
+    <span class="spacer"></span>
+    <span class="copyright">© <span id="year"></span> Toku Budget</span>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="docs.js"></script>
+</body>
+</html>
